@@ -4,6 +4,8 @@
     package="com.amit.photogram" >
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -14,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".SignInActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,14 +24,27 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".GoogleSignInActivity"
+        <activity android:name=".FeedActivity"
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".CommentDetailActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <service
+            android:name=".MyFirebaseInstanceIDService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
         <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+            android:value="@string/facebook_application_id"/>
 
     </application>
+
 
 
 </manifest>
